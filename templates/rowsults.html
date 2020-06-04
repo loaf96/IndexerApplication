@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% if srch %}
+<div class="card">
+  <div class="card-body">
+    <form method="POST" , action='/search'>
+      <h5 class="card-title">Filter by:</h5>
+      <div class="form-group">
+        <label for='pikachu'>
+          <div>STATE</div>
+        </label>
+        <select name='pikachu' class="form-control">
+          <option>-- List of States --</option>
+          {% for place in dsrdstate %}
+          <option value='{{place}}'>{{place}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <button type="submit" class="btn btn-default">Search</button>
+    </form>
+  </div>
+</div>
+{% endif %}
+{% if datinfo %}
+<div class="jumbotron mt-2">
+  <div class="container">
+    <h3 class="card-title"><b> {{dachoice}} </b></h3>
+  </div>
+</div>
+{% for rslts in datinfo %}
+<div class="card">
+  <div class="card-body">
+    <div id='divider'>-------------------------------------------</div>
+    {% for datdata in rslts %}
+    <p class="card-text">{{datdata}}</p>
+    {% endfor %}
+    <img class=daimg src="tester.jpg" height='100' width='75'>
+    <div id='divider'>-------------------------------------------</div>
+  </div>
+</div>
+</div>
+{% endfor %}
+{% endif %}
+{% endblock content %}

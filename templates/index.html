@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-4">Choose how you would like to search</h1>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    </nav>
+  </div>
+
+  <form method="POST" , action="/output">
+    <div class="form-group">
+      <ul class="list-group" id="filters">
+        <li class="filter list-group-item">
+          <label for="type1">Choose filter:</label>
+          <select name="type1" class="form-control">
+            <option>-------</option>
+            <option value='una'>State</option>
+            <option value='unb'>State and City</option>
+            <option value='unc'>State and Zipcode</option>
+            <option value='und'>Name of Business</option>
+          </select>
+        </li>
+      </ul>
+      <p>
+      </p>
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+{% endblock content %}
+  

@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% if stateoutput %}
+<div class="card">
+    <div class="card-body">
+        <form method="POST" , action='/search'>
+            <h5 class="card-title">Filter by:</h5>
+            <div class="form-group">
+                <label for='pikachu'>
+                    <div>STATE</div>
+                </label>
+                <select name='pikachu' class="form-control">
+                    <option>-- List of States --</option>
+                    {% for place in dsrdstate %}
+                    <option value='{{place}}'>{{place}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-default">Search</button>
+        </form>
+    </div>
+</div>
+{% endif %}
+
+{% if withState %}
+<div class="card">
+    <div class="card-body">
+        <form method="POST" , action='/search'>
+            <div class="form-group">
+                <ul class="list-group" id="filters">
+                    <li class="filter list-group-item">
+                        <label for="whtelse">{{dachoice}}</label>
+                        <input name="whtelse" type="text" class="form-control" placeholder="Enter {{daChoice}}">
+                        <div class="form-group">
+                            <label for='pikachu'>
+                                <div>STATE</div>
+                            </label>
+                            <select name='pikachu' class="form-control">
+                                <option>-- List of States --</option>
+                                {% for place in dsrdstate %}
+                                <option value='{{place}}'>{{place}}</option>
+                                {% endfor %}
+                            </select>
+                    </li>
+                </ul>
+            </div>
+            <button type="submit" class="btn btn-default">Search</button>
+        </form>
+    </div>
+</div>
+{% endif %}
+
+{% if woState %}
+<div class="card">
+    <div class="card-body">
+        <form method="POST" , action='/search'>
+            <div class="form-group">
+                <ul class="list-group" id="filters">
+                    <li class="filter list-group-item">
+                        <label for="daName">{{dachoice}}</label>
+                        <input name="daName" type="text" class="form-control" placeholder="Enter {{daChoice}}">
+                    </li>
+                </ul>
+                <button type="submit" class="btn btn-default">Search</button>
+        </form>
+    </div>
+</div>
+{% endif %}
+
+{% endblock content %}
